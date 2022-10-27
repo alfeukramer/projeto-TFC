@@ -9,7 +9,7 @@ class User extends Model {
   email: string;
   password: string;
 }
-
+// teste push
 User.init({
   id: {
     primaryKey: true,
