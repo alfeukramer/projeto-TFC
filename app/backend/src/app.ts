@@ -1,4 +1,7 @@
 import * as express from 'express';
+import 'express-async-errors';
+import loginRouter from './database/routes/login.router';
+import genericErrorMiddleware from './database/middlerawes/genericErrorMiddleware';
 
 class App {
   public app: express.Express;
@@ -7,6 +10,7 @@ class App {
     this.app = express();
 
     this.config();
+    this.routes();
 
     // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
@@ -24,14 +28,17 @@ class App {
     this.app.use(accessControl);
   }
 
+  private routes(): void {
+    this.app.use('/', loginRouter);
+    this.app.use(genericErrorMiddleware);
+  }
+
   public start(PORT: string | number):void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
   }
 }
 
 export { App };
-
-// commit inicial
 
 // A execução dos testes de cobertura depende dessa exportação
 export const { app } = new App();
