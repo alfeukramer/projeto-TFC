@@ -17,4 +17,9 @@ export default class LoginController {
 
     return res.status(200).json({ token });
   }
+
+  validateAuth = async (req: Request, res: Response) => {
+    const verify = { ...req.body };
+    return res.status(200).json({ message: verify });
+  };
 }

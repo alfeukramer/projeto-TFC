@@ -8,4 +8,9 @@ const generateToken = (id: number, role: string) => {
   return verifyToken;
 };
 
+export const authToken = async (token: any) => {
+  const intropection = jwt.verify(token, JWT_SECRET);
+  return intropection;
+};
+
 export default generateToken;
