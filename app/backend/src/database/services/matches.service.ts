@@ -12,4 +12,14 @@ export default class MatchesService {
     });
     return matches;
   }
+
+  async getByQuery(query: any): Promise<IMatches[]> {
+    const matches = await this.matchesModel.findAll(
+      { where: { inProgress: query !== 'false' ? 1 : 0 },
+        include: [{ model: Teams, as: 'teamHome', attributes: { exclude: ['id'] } },
+          { model: Teams, as: 'teamAway', attributes: { exclude: ['id'] } }],
+      },
+    );
+    return matches;
+  }
 }
