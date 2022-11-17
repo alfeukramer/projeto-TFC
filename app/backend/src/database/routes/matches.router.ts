@@ -9,9 +9,13 @@ const matchesRouter = Router();
 const matchesController = new MatchesController();
 
 matchesRouter.get('/matches', (req, res) => matchesController.getAllMatches(req, res));
+
 matchesRouter.post('/matches', tokenValidation, sameTeam, verifyTeamId, (req, res) =>
   matchesController.insertMatch(req, res));
+
 matchesRouter.patch('/matches/:id/finish', (req, res) => matchesController
   .updateStatusMatch(req, res));
+
+matchesRouter.patch('/matches/:id', (req, res) => matchesController.updateScoreMatch(req, res));
 
 export default matchesRouter;

@@ -32,4 +32,10 @@ export default class MatchesService {
     const updateMatch = await this.matchesModel.update({ inProgress: false }, { where: { id } });
     return updateMatch;
   }
+
+  async updateMatchesInProgress(id: string, homeTeamGoals: number, awayTeamGoals: number) {
+    const updateProgress = await this.matchesModel
+      .update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+    return updateProgress;
+  }
 }
