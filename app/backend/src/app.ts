@@ -4,6 +4,7 @@ import loginRouter from './database/routes/login.router';
 import genericErrorMiddleware from './database/middlerawes/genericErrorMiddleware';
 import teamRouter from './database/routes/team.routes';
 import matchesRouter from './database/routes/matches.router';
+import leaderboardRouter from './database/routes/leaderboard.routes';
 
 class App {
   public app: express.Express;
@@ -34,6 +35,7 @@ class App {
     this.app.use('/', loginRouter);
     this.app.use('/', teamRouter);
     this.app.use('/', matchesRouter);
+    this.app.use('/', leaderboardRouter);
     this.app.use(genericErrorMiddleware);
   }
 
