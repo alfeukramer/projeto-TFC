@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { newMatch } from '../interfaces/IMatches';
 import MatchesService from '../services/matches.service';
 
 export default class MatchesController {
@@ -16,5 +17,21 @@ export default class MatchesController {
     }
     const matchesQuery = await this.matchesService.getByQuery(inProgress);
     return res.status(200).json(matchesQuery);
+  }
+
+  async insertMatch(req: Request, res: Response) {
+    const { homeTeam, homeTeamGoals, awayTeam, awayTeamGoals }: newMatch = req.body;
+    if (!homeTeam || !homeTeamGoals || !awayTeam || !awayTeamGoals) {
+      return res.sendStatus(401);
+    }
+    const newwMatch = await this.matchesService
+      .insertMatch({ homeTeam, homeTeamGoals, awayTeam, awayTeamGoals });
+    return res.status(201).json(newwMatch);
+  }
+
+  async updateStatusMatch(req: Request, res: Response) {
+    const { id } = req.params;
+    await this.matchesService.updateStatusMatch(id);
+    return res.status(200).json({ message: 'Finished' });
   }
 }

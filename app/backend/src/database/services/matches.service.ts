@@ -1,4 +1,4 @@
-import { IMatches } from '../interfaces/IMatches';
+import { IMatches, newMatch } from '../interfaces/IMatches';
 import Matches from '../models/matches.model';
 import Teams from '../models/teams.model';
 
@@ -21,5 +21,15 @@ export default class MatchesService {
       },
     );
     return matches;
+  }
+
+  async insertMatch(teams: newMatch): Promise<IMatches> {
+    const insertMatch = await this.matchesModel.create({ ...teams, inProgress: 1 });
+    return insertMatch;
+  }
+
+  async updateStatusMatch(id: string) {
+    const updateMatch = await this.matchesModel.update({ inProgress: false }, { where: { id } });
+    return updateMatch;
   }
 }
