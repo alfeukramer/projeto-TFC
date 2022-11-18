@@ -12,4 +12,9 @@ export default class {
     const results = await this.leaderService.homeScores();
     return res.status(200).json(results);
   }
+
+  async getAwayScores(req: Request, res: Response) {
+    const results = await this.leaderService.awayScores();
+    return res.status(200).json(results);
+  }
 }

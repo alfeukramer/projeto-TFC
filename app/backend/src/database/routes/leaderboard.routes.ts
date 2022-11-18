@@ -7,4 +7,7 @@ const leaderboardController = new LeaderboardController();
 leaderboardRouter.get('/leaderboard/home', (req, res) =>
   leaderboardController.getHomeScores(req, res));
 
+leaderboardRouter.get('/leaderboard/away', (req, res) =>
+  leaderboardController.getAwayScores(req, res));
+
 export default leaderboardRouter;
