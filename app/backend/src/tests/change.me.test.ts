@@ -33,16 +33,16 @@ describe('POST na rota /login', () => {
     expect(httpResponse.body).to.deep.equal({ message: 'All fields must be filled'})
   });
 
-  it('resposta ao não informar o password - resposta STATUS 400', async () => {
-    sinon.stub(Model, 'findAll').resolves();
+  it('quando requisição é feita com sucesso - resposta STATUS 200', async () => {
     const httpResponse = await chai
     .request(app)
-    .get('/matches')
+    .post('/login')
+    .send({ email: 'user@user.com', password: '$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO' })   
     expect(httpResponse.status).to.equal(200)
   });
 });
 
-
+// forçando push
   /**
    * Exemplo do uso de stubs com tipos
    */
