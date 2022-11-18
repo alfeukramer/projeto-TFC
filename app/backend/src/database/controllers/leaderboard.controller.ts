@@ -17,4 +17,9 @@ export default class {
     const results = await this.leaderService.awayScores();
     return res.status(200).json(results);
   }
+
+  async allScores(req: Request, res: Response) {
+    const results = await this.leaderService.allScores();
+    return res.status(200).json(results);
+  }
 }

@@ -6,6 +6,8 @@ import chaiHttp = require('chai-http');
 import { app } from '../app';
 
 import { Response } from 'superagent';
+import allMatches from './mocks';
+import { Model } from 'sequelize/types';
 
 chai.use(chaiHttp);
 
@@ -31,14 +33,15 @@ describe('POST na rota /login', () => {
     expect(httpResponse.body).to.deep.equal({ message: 'All fields must be filled'})
   });
 
-  it('quando requisição é feita com sucesso - resposta STATUS 200', async () => {
+  it('resposta ao não informar o password - resposta STATUS 400', async () => {
+    sinon.stub(Model, 'findAll').resolves();
     const httpResponse = await chai
     .request(app)
-    .post('/login')
-    .send({ email: 'user@user.com', password: '$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO' })   
+    .get('/matches')
     expect(httpResponse.status).to.equal(200)
   });
 });
+
 
   /**
    * Exemplo do uso de stubs com tipos
