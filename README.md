@@ -1,4 +1,4 @@
-O TFC é um site informativo sobre partidas e classificações de futebol!
+<br>O TFC é um site informativo sobre partidas e classificações de futebol!</b>
 
 Desenvolvi a API da aplicação, utilizando TDD, e ela funciona de forma dockerizada com o front-end.
 
