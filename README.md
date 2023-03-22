@@ -6,7 +6,7 @@ Para adicionar uma partida é necessário ter um token, portanto a pessoa dever�
 
 Esse projeto é composto de 4 seções principais:
 
-1- Users e Login
+1- Users e Login<br />
 2- Times
 3 - Partidas
 4 - Placar
