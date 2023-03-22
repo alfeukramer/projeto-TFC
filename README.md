@@ -11,7 +11,7 @@ Esse projeto é composto de 4 seções principais:
 3 - Partidas<br />
 4 - Placar<br />
 
-<h4>Tecnologias utilizadas:<\h4><br />
+<h4>Tecnologias utilizadas:</h4><br />
     typescript<br />
     bcryptjs<br />
     express<br />
