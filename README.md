@@ -7,21 +7,21 @@ Para adicionar uma partida é necessário ter um token, portanto a pessoa dever�
 Esse projeto é composto de 4 seções principais:
 
 1- Users e Login<br />
-2- Times
-3 - Partidas
-4 - Placar
+2- Times<br />
+3 - Partidas<br />
+4 - Placar<br />
 
-Tecnologias utilizadas:
-    typescript
-    bcryptjs
-    express
-    express-async-errors
-    jest
-    jsonwebtoken
-    mysql
-    sequelize
-    chai-http
-    eslint
-    mocha
-    nodemon
-    sinon
+<h4>Tecnologias utilizadas:<\h4><br />
+    typescript<br />
+    bcryptjs<br />
+    express<br />
+    express-async-errors<br />
+    jest<br />
+    jsonwebtoken<br />
+    mysql<br />
+    sequelize<br />
+    chai-http<br />
+    eslint<br />
+    mocha<br />
+    nodemon<br />
+    sinon<br />
